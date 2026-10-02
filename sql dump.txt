@@ -1,0 +1,489 @@
+newdb=# CREATE TABLE Branch (
+newdb(# BranchNo        varchar(80),
+newdb(# Street  varchar(80),
+newdb(# city    varchar(80),
+newdb(# postcode        varchar(80));
+CREATE TABLE
+newdb=# SELECT * FROM branch
+newdb-# ;
+ branchno | street | city | postcode
+----------+--------+------+----------
+(0 rows)
+
+
+newdb=# SELECT * FROM branch;
+ branchno |    street    |   city   | postcode
+----------+--------------+----------+----------
+ B005     | 22 Deer Rd   | London   | SW1 4EH
+ B007     | 16 Argyll St | Aberdeen | AB2 3SU
+ B003     | 163 Main St  | Glasgow  | G11 9Qx
+ B004     | 32 Manse Rd  | Bristol  | BS99 1NZ
+ B002     | 56 Clover Dr | London   | NW10 6EU
+(5 rows)
+
+
+newdb=# CREATE TABLE Staff (
+newdb(# staffNo varchar(80),
+newdb(# fName   varchar(80),
+newdb(# lName   varchar(80),
+newdb(# position        varchar(80),
+newdb(# sex     char,
+newdb(# DOB     varchar(80),
+newdb(# salary  integer,
+newdb(# branchNo        varchar(80));
+CREATE TABLE
+newdb=# SELECT * FROM staff
+newdb-# ;
+ staffno | fname | lname | position | sex | dob | salary | branchno
+---------+-------+-------+----------+-----+-----+--------+----------
+(0 rows)
+
+
+newdb=# ;
+newdb=# SELECT * FROM staff;
+ staffno | fname | lname |  position  | sex |    dob    | salary | branchno
+---------+-------+-------+------------+-----+-----------+--------+----------
+ SL21    | john  | White | Manager    | M   | 1-Oct-45  |  30000 | B005
+ SG37    | Ann   | Beech | Assistant  | F   | 10-Nov-60 |  12000 | B003
+ SG14    | David | Ford  | Supervisor | M   | 24-Mar-58 |  18000 | B003
+ SA9     | Mary  | Howe  | Assistant  | F   | 19-Feb-70 |   9000 | B007
+ SG5     | Susan | Brand | Manager    | F   | 3-Jun-40  |  24000 | B003
+ SL41    | Julie | Lee   | Assistant  | F   | 13-Jun-65 |   9000 | B005
+(6 rows)
+
+
+newdb=# CREATE TABLE PropertyForRent(
+newdb(# PropertyNo      varchar(80),
+newdb(# street   varchar(80),
+newdb(# city    varchar(80),
+newdb(# postcode        varchar(80),
+newdb(# type    varchar(80),
+newdb(# rooms   integer,
+newdb(# rooms   integer,
+newdb(# rent    integer,
+newdb(# ownerNo varchar(80),
+newdb(# staffNo varchar(80),
+newdb(# branchNo        varchar(80),
+newdb(# ;
+newdb(# );
+ERROR:  syntax error at or near ";"
+LINE 13: ;
+         ^
+newdb=# CREATE TABLE PropertyForRent(
+newdb(# PropertyNo      varchar(80),
+newdb(# street   varchar(80),
+newdb(# city    varchar(80),
+newdb(# postcode        varchar(80),
+newdb(# type    varchar(80),
+newdb(# rooms   integer,
+newdb(# rent    integer,
+newdb(# ownerNo varchar(80),
+newdb(# staffNo varchar(80),
+newdb(# branchNo        varchar(80));
+CREATE TABLE
+newdb=# SELECT * FROM propertyforrent
+newdb-# ;
+ propertyno | street | city | postcode | type | rooms | rent | ownerno | staffno | branchno
+------------+--------+------+----------+------+-------+------+---------+---------+----------
+(0 rows)
+
+
+newdb=#
+newdb=# SELECT * FROM propertyforrent;
+ propertyno | street | city | postcode | type | rooms | rent | ownerno | staffno | branchno
+------------+--------+------+----------+------+-------+------+---------+---------+----------
+(0 rows)
+
+
+newdb=# SELECT * FROM propertyforrent;
+ propertyno |     street     |   city   | postcode | type  | rooms | rent | ownerno | staffno | branchno
+------------+----------------+----------+----------+-------+-------+------+---------+---------+----------
+ PA14       | 16 Holhead     | Aberdeen | AB7 5SU  | House |     6 |  650 | C046    | SA9     | B007
+ PL94       | 6 Argyll St    | London   | NW2      | Flat  |     4 |  400 | C087    | SL41    | B005
+ PG4        | 6 Lawrence  St | Glasgow  | G11 9QX  | Flat  |     3 |  350 | C040    |         | B003
+ PG36       | 2 Manor Rd     | Glasgow  | G11 4QX  | Flat  |     3 |  375 | CO93    | SG37    | B003
+ PG21       | 18 Dale Rd     | Glasgow  | G12      | House |     5 |  600 | CO87    | SG37    | B003
+ PG16       | 5 Novar Dr     | Glasgow  | G12 9AX  | Flat  |     4 |  450 | CO93    | SG14    | B003
+(6 rows)
+
+
+newdb=# CREATE TABLE Client (
+newdb(# clientNo        varchar(80),
+newdb(# fName   varchar(80),
+newdb(# lName   varchar(80),
+newdb(# telNo   varchar(80),
+newdb(# prefType        varchar(80),
+newdb(# maxRent integer);
+CREATE TABLE
+newdb=# SELECT * FROM Client;
+ clientno | fname |  lname  |     telno     | preftype | maxrent
+----------+-------+---------+---------------+----------+---------
+ CR76     | john  | kay     | 0207-774-5632 | Flat     |     425
+ CR56     | Aline | Stewart | 0141-848-1825 | Flat     |     350
+ CR74     | Mike  | Ritchie | 01475-392178  | House    |     750
+ CR62     | Marry | Tregar  | 01224-196720  | Flat     |     600
+(4 rows)
+
+
+newdb=#
+newdb=#
+newdb=# CREATE TABLE PrivateOwner (
+newdb(# ownerNo varchar(80),
+newdb(# fName   varchar(80),
+newdb(# lname   varchar(80),
+newdb(# address varchar(80),
+newdb(# telno   varchar(80));
+CREATE TABLE
+newdb=# SELECT * FROM privateowner;
+ ownerno | fname | lname  |            address            |     telno
+---------+-------+--------+-------------------------------+---------------
+ CO46    | Joe   | Keogh  | 2 Fergus Dr, Aberdeen AB2 7SX | 01224-861212
+ CO87    | Carol | Farrel | 6 Achray St, Glasgow G32 9DX  | 0141-357-7419
+ C040    | Tina  | Murphy | 63 Well St, Glasgow G42       | 0141-943-1728
+ CO93    | Tony  | Shaw   | 12 Park Pl, Glasgow G4 0QR    | 0141-225-7025
+(4 rows)
+
+
+newdb=# create table viewing(
+newdb(# clientNo        varchar(80),
+newdb(# propertyno      varchar(80),
+newdb(# viewdate        varchar(80),
+newdb(# comment varchar(80));
+CREATE TABLE
+newdb=# create table registration(
+newdb(# clientno        varchar(80),
+newdb(# branchno        varchar(80),
+newdb(# staffno varchar(80),
+newdb(# datejoined      varchar(80));
+CREATE TABLE
+newdb=# SELECT * from staff
+newdb-# ;
+ staffno | fname | lname |  position  | sex |    dob    | salary | branchno
+---------+-------+-------+------------+-----+-----------+--------+----------
+ SL21    | john  | White | Manager    | M   | 1-Oct-45  |  30000 | B005
+ SG37    | Ann   | Beech | Assistant  | F   | 10-Nov-60 |  12000 | B003
+ SG14    | David | Ford  | Supervisor | M   | 24-Mar-58 |  18000 | B003
+ SA9     | Mary  | Howe  | Assistant  | F   | 19-Feb-70 |   9000 | B007
+ SG5     | Susan | Brand | Manager    | F   | 3-Jun-40  |  24000 | B003
+ SL41    | Julie | Lee   | Assistant  | F   | 13-Jun-65 |   9000 | B005
+(6 rows)
+
+
+newdb=# select * from saff where salary < 10000
+newdb-# ;
+ERROR:  relation "saff" does not exist
+LINE 1: select * from saff where salary < 10000
+                      ^
+newdb=# select * from staff where salary < 10000;
+ staffno | fname | lname | position  | sex |    dob    | salary | branchno
+---------+-------+-------+-----------+-----+-----------+--------+----------
+ SA9     | Mary  | Howe  | Assistant | F   | 19-Feb-70 |   9000 | B007
+ SL41    | Julie | Lee   | Assistant | F   | 13-Jun-65 |   9000 | B005
+(2 rows)
+
+
+newdb=# select *, (salary)*10%+salary AS bonus FROM staff;
+ERROR:  operator does not exist: integer %+ integer
+LINE 1: select *, (salary)*10%+salary AS bonus FROM staff;
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+newdb=# select *, ((salary)*10%)+salary AS bonus FROM staff;
+ERROR:  syntax error at or near ")"
+LINE 1: select *, ((salary)*10%)+salary AS bonus FROM staff;
+                               ^
+newdb=# select *, (salary)*10%+(salary) AS bonus FROM staff;
+ERROR:  operator does not exist: integer %+ integer
+LINE 1: select *, (salary)*10%+(salary) AS bonus FROM staff;
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+newdb=# select *, (salary)/10+(salary) AS bonus FROM staff;
+ staffno | fname | lname |  position  | sex |    dob    | salary | branchno | bonus
+---------+-------+-------+------------+-----+-----------+--------+----------+-------
+ SL21    | john  | White | Manager    | M   | 1-Oct-45  |  30000 | B005     | 33000
+ SG37    | Ann   | Beech | Assistant  | F   | 10-Nov-60 |  12000 | B003     | 13200
+ SG14    | David | Ford  | Supervisor | M   | 24-Mar-58 |  18000 | B003     | 19800
+ SA9     | Mary  | Howe  | Assistant  | F   | 19-Feb-70 |   9000 | B007     |  9900
+ SG5     | Susan | Brand | Manager    | F   | 3-Jun-40  |  24000 | B003     | 26400
+ SL41    | Julie | Lee   | Assistant  | F   | 13-Jun-65 |   9000 | B005     |  9900
+(6 rows)
+
+
+newdb=# select * WHERE salary <10000, (salary)/10+(salary) AS bonus FROM staff;
+ERROR:  syntax error at or near ","
+LINE 1: select * WHERE salary <10000, (salary)/10+(salary) AS bonus ...
+                                    ^
+newdb=# select * WHERE salary < 10000, (salary)/10+(salary) AS bonus FROM staff;
+ERROR:  syntax error at or near ","
+LINE 1: select * WHERE salary < 10000, (salary)/10+(salary) AS bonus...
+                                     ^
+newdb=# select * WHERE salary < 10000 FROM staff, (salary)/10+(salary) AS bonus FROM staff;
+ERROR:  syntax error at or near "FROM"
+LINE 1: select * WHERE salary < 10000 FROM staff, (salary)/10+(salar...
+                                      ^
+newdb=# select * WHERE salary < 1000, ((salary)/10+(salary) AS bonus FROM staff);
+ERROR:  syntax error at or near ","
+LINE 1: select * WHERE salary < 1000, ((salary)/10+(salary) AS bonus...
+                                    ^
+newdb=# SELECT
+newdb-# *,
+newdb-# salary AS gaji_awal,
+newdb-# (salary * 0.1) AS bonus,
+newdb-# (salary * 1.1) AS gaji_akhir
+newdb-# FROM staff WHERE gaji <1000;
+ERROR:  column "gaji" does not exist
+LINE 6: FROM staff WHERE gaji <1000;
+                         ^
+newdb=# FROM staff WHERE salary <1000;
+ERROR:  syntax error at or near "FROM"
+LINE 1: FROM staff WHERE salary <1000;
+        ^
+newdb=# SELECT
+newdb-# *,
+newdb-# salary AS gaji_awal,
+newdb-# (salary * 0.1) AS bonus,
+newdb-# (salary * 1.1) AS gaji_akhir
+newdb-# FROM staff WHERE salary <1000;
+ staffno | fname | lname | position | sex | dob | salary | branchno | gaji_awal | bonus | gaji_akhir
+---------+-------+-------+----------+-----+-----+--------+----------+-----------+-------+------------
+(0 rows)
+
+
+newdb=# SELECT
+newdb-# *,
+newdb-# salary AS gaji_awal,
+newdb-# (salary * 0.1) AS bonus,
+newdb-# (salary * 1.1) AS gaji_akhir
+newdb-# FROM staff WHERE salary <1000;
+ staffno | fname | lname | position | sex | dob | salary | branchno | gaji_awal | bonus | gaji_akhir
+---------+-------+-------+----------+-----+-----+--------+----------+-----------+-------+------------
+(0 rows)
+
+
+newdb=# SELECT
+newdb-# *,
+newdb-# salary AS gaji_awal,
+newdb-# (salary * 0.1) AS bonus,
+newdb-# (salary * 1.1) AS gaji_akhir
+newdb-# FROM staff;
+ staffno | fname | lname |  position  | sex |    dob    | salary | branchno | gaji_awal | bonus  | gaji_akhir
+---------+-------+-------+------------+-----+-----------+--------+----------+-----------+--------+------------
+ SL21    | john  | White | Manager    | M   | 1-Oct-45  |  30000 | B005     |     30000 | 3000.0 |    33000.0
+ SG37    | Ann   | Beech | Assistant  | F   | 10-Nov-60 |  12000 | B003     |     12000 | 1200.0 |    13200.0
+ SG14    | David | Ford  | Supervisor | M   | 24-Mar-58 |  18000 | B003     |     18000 | 1800.0 |    19800.0
+ SA9     | Mary  | Howe  | Assistant  | F   | 19-Feb-70 |   9000 | B007     |      9000 |  900.0 |     9900.0
+ SG5     | Susan | Brand | Manager    | F   | 3-Jun-40  |  24000 | B003     |     24000 | 2400.0 |    26400.0
+ SL41    | Julie | Lee   | Assistant  | F   | 13-Jun-65 |   9000 | B005     |      9000 |  900.0 |     9900.0
+(6 rows)
+
+
+newdb=# SELECT * FROM propertyforrent;
+ propertyno |     street     |   city   | postcode | type  | rooms | rent | ownerno | staffno | branchno
+------------+----------------+----------+----------+-------+-------+------+---------+---------+----------
+ PA14       | 16 Holhead     | Aberdeen | AB7 5SU  | House |     6 |  650 | C046    | SA9     | B007
+ PL94       | 6 Argyll St    | London   | NW2      | Flat  |     4 |  400 | C087    | SL41    | B005
+ PG4        | 6 Lawrence  St | Glasgow  | G11 9QX  | Flat  |     3 |  350 | C040    |         | B003
+ PG36       | 2 Manor Rd     | Glasgow  | G11 4QX  | Flat  |     3 |  375 | CO93    | SG37    | B003
+ PG21       | 18 Dale Rd     | Glasgow  | G12      | House |     5 |  600 | CO87    | SG37    | B003
+ PG16       | 5 Novar Dr     | Glasgow  | G12 9AX  | Flat  |     4 |  450 | CO93    | SG14    | B003
+(6 rows)
+
+
+newdb=# SELECT * FROM propertyforrent WHERE city = london;
+ERROR:  column "london" does not exist
+LINE 1: SELECT * FROM propertyforrent WHERE city = london;
+                                                   ^
+newdb=# SELECT * FROM propertyforrent WHERE city = London;
+ERROR:  column "london" does not exist
+LINE 1: SELECT * FROM propertyforrent WHERE city = London;
+                                                   ^
+newdb=# SELECT * FROM propertyforrent WHERE city = "London";
+ERROR:  column "London" does not exist
+LINE 1: SELECT * FROM propertyforrent WHERE city = "London";
+                                                   ^
+newdb=# SELECT * FROM propertyforrent WHERE city = 'London';
+ propertyno |   street    |  city  | postcode | type | rooms | rent | ownerno | staffno | branchno
+------------+-------------+--------+----------+------+-------+------+---------+---------+----------
+ PL94       | 6 Argyll St | London | NW2      | Flat |     4 |  400 | C087    | SL41    | B005
+(1 row)
+
+
+newdb=# SELECT * FROM propertyforrent WHERE city != 'London';
+ propertyno |     street     |   city   | postcode | type  | rooms | rent | ownerno | staffno | branchno
+------------+----------------+----------+----------+-------+-------+------+---------+---------+----------
+ PA14       | 16 Holhead     | Aberdeen | AB7 5SU  | House |     6 |  650 | C046    | SA9     | B007
+ PG4        | 6 Lawrence  St | Glasgow  | G11 9QX  | Flat  |     3 |  350 | C040    |         | B003
+ PG36       | 2 Manor Rd     | Glasgow  | G11 4QX  | Flat  |     3 |  375 | CO93    | SG37    | B003
+ PG21       | 18 Dale Rd     | Glasgow  | G12      | House |     5 |  600 | CO87    | SG37    | B003
+ PG16       | 5 Novar Dr     | Glasgow  | G12 9AX  | Flat  |     4 |  450 | CO93    | SG14    | B003
+(5 rows)
+
+
+newdb=# create table registration(
+newdb(# clientNo        varchar(80),
+newdb(# branchno         varchar(80),
+newdb(# staffno  varchar(80),
+newdb(# datejoined       varchar(80),
+newdb(# );
+ERROR:  syntax error at or near ")"
+LINE 6: );
+        ^
+newdb=# create table registration(
+newdb(# clientNo        varchar(80),
+newdb(# branchno         varchar(80),
+newdb(# staffno  varchar(80),
+newdb(# datejoined       varchar(80));
+ERROR:  relation "registration" already exists
+newdb=# SELECT * FROM client;
+ clientno | fname |  lname  |     telno     | preftype | maxrent
+----------+-------+---------+---------------+----------+---------
+ CR76     | john  | kay     | 0207-774-5632 | Flat     |     425
+ CR56     | Aline | Stewart | 0141-848-1825 | Flat     |     350
+ CR74     | Mike  | Ritchie | 01475-392178  | House    |     750
+ CR62     | Marry | Tregar  | 01224-196720  | Flat     |     600
+(4 rows)
+
+
+newdb=# SELECT * from viewing;
+ clientno | propertyno | viewdate | comment
+----------+------------+----------+---------
+(0 rows)
+
+
+newdb=# select * from registration;
+ clientno | branchno | staffno | datejoined
+----------+----------+---------+------------
+ CR76     | B005     | SL41    | 2-Jan-04
+ CR56     | B003     | SG37    | 11-Apr-03
+ CR74     | B003     | SG37    | 16-Nov-02
+ CR62     | B007     | SA9     | 7-Mar-03
+(4 rows)
+
+
+newdb=# SELECT * from viewing;
+ERROR:  character with byte sequence 0xef 0xbb 0xbf in encoding "UTF8" has no equivalent in encoding "WIN1252"
+newdb=# SELECT * FROM viewing;
+ERROR:  character with byte sequence 0xef 0xbb 0xbf in encoding "UTF8" has no equivalent in encoding "WIN1252"
+newdb=# SELECT * FROM viewing;
+ERROR:  character with byte sequence 0xef 0xbb 0xbf in encoding "UTF8" has no equivalent in encoding "WIN1252"
+newdb=# SELECT * FROM privateowner;
+ ownerno | fname | lname  |            address            |     telno
+---------+-------+--------+-------------------------------+---------------
+ CO46    | Joe   | Keogh  | 2 Fergus Dr, Aberdeen AB2 7SX | 01224-861212
+ CO87    | Carol | Farrel | 6 Achray St, Glasgow G32 9DX  | 0141-357-7419
+ C040    | Tina  | Murphy | 63 Well St, Glasgow G42       | 0141-943-1728
+ CO93    | Tony  | Shaw   | 12 Park Pl, Glasgow G4 0QR    | 0141-225-7025
+(4 rows)
+
+
+newdb=# DELETE * FROM viewing;
+ERROR:  syntax error at or near "*"
+LINE 1: DELETE * FROM viewing;
+               ^
+newdb=# TRUNCATE * FROM viewing;
+ERROR:  syntax error at or near "*"
+LINE 1: TRUNCATE * FROM viewing;
+                 ^
+newdb=# TRUNCATE FROM viewing;
+ERROR:  syntax error at or near "FROM"
+LINE 1: TRUNCATE FROM viewing;
+                 ^
+newdb=# TRUNCATEviewing;
+ERROR:  syntax error at or near "TRUNCATEviewing"
+LINE 1: TRUNCATEviewing;
+        ^
+newdb=# TRUNCATE viewing;
+TRUNCATE TABLE
+newdb=# select * from viewing;
+ clientno | propertyno | viewdate | comment
+----------+------------+----------+---------
+(0 rows)
+
+
+newdb=# select * from viewing;
+ clientno | propertyno | viewdate  |    comment
+----------+------------+-----------+----------------
+ CR56     | PA14       | 24-May-04 | too small
+ CR76     | PG4        | 20-Apr-04 | too remote
+ CR56     | PG4        | 26-May-04 |
+ CR62     | PA14       | 14-May-04 | no dining room
+ CR56     | PG36       | 28-Apr-04 |
+(5 rows)
+
+
+newdb=# SELECT * from propertyforrent
+newdb-# ;
+ propertyno |     street     |   city   | postcode | type  | rooms | rent | ownerno | staffno | branchno
+------------+----------------+----------+----------+-------+-------+------+---------+---------+----------
+ PA14       | 16 Holhead     | Aberdeen | AB7 5SU  | House |     6 |  650 | C046    | SA9     | B007
+ PL94       | 6 Argyll St    | London   | NW2      | Flat  |     4 |  400 | C087    | SL41    | B005
+ PG4        | 6 Lawrence  St | Glasgow  | G11 9QX  | Flat  |     3 |  350 | C040    |         | B003
+ PG36       | 2 Manor Rd     | Glasgow  | G11 4QX  | Flat  |     3 |  375 | CO93    | SG37    | B003
+ PG21       | 18 Dale Rd     | Glasgow  | G12      | House |     5 |  600 | CO87    | SG37    | B003
+ PG16       | 5 Novar Dr     | Glasgow  | G12 9AX  | Flat  |     4 |  450 | CO93    | SG14    | B003
+(6 rows)
+
+
+newdb=# SELECT * from propertyforrent WHERE propertyno = PA14;
+ERROR:  column "pa14" does not exist
+LINE 1: SELECT * from propertyforrent WHERE propertyno = PA14;
+                                                         ^
+newdb=# SELECT * from propertyforrent WHERE propertyno = 'PA14';
+ propertyno |   street   |   city   | postcode | type  | rooms | rent | ownerno | staffno | branchno
+------------+------------+----------+----------+-------+-------+------+---------+---------+----------
+ PA14       | 16 Holhead | Aberdeen | AB7 5SU  | House |     6 |  650 | C046    | SA9     | B007
+(1 row)
+
+
+newdb=# SELECT * from propertyforrent WHERE propertyno = viewing.propertyno;;
+ERROR:  missing FROM-clause entry for table "viewing"
+LINE 1: SELECT * from propertyforrent WHERE propertyno = viewing.pro...
+                                                         ^
+newdb=# SELECT * from propertyforrent WHERE propertyno = propertyno FROM viewing;
+ERROR:  syntax error at or near "FROM"
+LINE 1: ...rom propertyforrent WHERE propertyno = propertyno FROM viewi...
+                                                             ^
+newdb=# SELECT DISTINCT p.*FROM propertyforrent pJOIN viewing v   ON p.propertyno = v.propertyno;
+ERROR:  syntax error at or near "viewing"
+LINE 1: SELECT DISTINCT p.*FROM propertyforrent pJOIN viewing v   ON...
+                                                      ^
+newdb=#
+newdb=# SELECT privateowner;
+ERROR:  column "privateowner" does not exist
+LINE 1: SELECT privateowner;
+               ^
+newdb=# SELECT * FROM privateowner;
+ ownerno | fname | lname  |            address            |     telno
+---------+-------+--------+-------------------------------+---------------
+ CO46    | Joe   | Keogh  | 2 Fergus Dr, Aberdeen AB2 7SX | 01224-861212
+ CO87    | Carol | Farrel | 6 Achray St, Glasgow G32 9DX  | 0141-357-7419
+ C040    | Tina  | Murphy | 63 Well St, Glasgow G42       | 0141-943-1728
+ CO93    | Tony  | Shaw   | 12 Park Pl, Glasgow G4 0QR    | 0141-225-7025
+(4 rows)
+
+
+newdb=# SELECT * FROM propertyforrent WHERE rent < 500
+newdb-# ;
+ propertyno |     street     |  city   | postcode | type | rooms | rent | ownerno | staffno | branchno
+------------+----------------+---------+----------+------+-------+------+---------+---------+----------
+ PL94       | 6 Argyll St    | London  | NW2      | Flat |     4 |  400 | C087    | SL41    | B005
+ PG4        | 6 Lawrence  St | Glasgow | G11 9QX  | Flat |     3 |  350 | C040    |         | B003
+ PG36       | 2 Manor Rd     | Glasgow | G11 4QX  | Flat |     3 |  375 | CO93    | SG37    | B003
+ PG16       | 5 Novar Dr     | Glasgow | G12 9AX  | Flat |     4 |  450 | CO93    | SG14    | B003
+(4 rows)
+
+
+newdb=# SELECT propertyno, steet, city, ownerno FROM propertyforrent WHERE rent < 500
+newdb-# ;
+ERROR:  column "steet" does not exist
+LINE 1: SELECT propertyno, steet, city, ownerno FROM propertyforrent...
+                           ^
+HINT:  Perhaps you meant to reference the column "propertyforrent.street".
+newdb=# SELECT street FROM propertyforrent WHERE rent < 500
+newdb-# ;
+     street
+----------------
+ 6 Argyll St
+ 6 Lawrence  St
+ 2 Manor Rd
+ 5 Novar Dr
+(4 rows)
