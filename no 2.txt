@@ -1,0 +1,49 @@
+1.Jelaskan tujuan dan konteks database yang Anda buat.
+(15 Points)
+
+Uraikan jenis database, pengguna atau stakeholder, kebutuhan yang dilayani, serta manfaatnya.
+database yang saya buat adalah database tentang properti untuk penjualan serta data client dan penjual yang bersangkutan.
+2.Identifikasi staff dengan gaji kurang dari 10.000.
+(20 Points)
+
+Tuliskan query SQL, jumlah staff, nama lengkap, dan gaji masing-masing.
+select * from staff where salary < 10000;
+Mary Howe mempunyai gaji 9000
+Julie Lee mempunyai gaji 9000
+3.Hitung gaji staff setelah menerima bonus 10%.
+(15 Points)
+
+Gunakan staff yang gajinya kurang dari 10.000. Tampilkan nama lengkap, gaji awal, bonus, dan gaji akhir. [NO. 3 dan NO. 2 Saling berhubungan]
+newdb=# SELECT
+newdb-# *,
+newdb-# salary AS gaji_awal,
+newdb-# (salary * 0.1) AS bonus,
+newdb-# (salary * 1.1) AS gaji_akhir
+newdb-# FROM staff;
+
+Mary Howe 9000 |  900.0 |     9900.0
+Julie Lee 9000 |  900.0 |     9900.0
+4.Analisis property yang berada di luar kota London.
+(20 Points)
+
+Tentukan jumlah property, jenis property, nama pemilik, dan nama client atau pengguna.
+SELECT * FROM propertyforrent WHERE city != 'London';
+ada 5 properti yang diluar london. ada lebih banyak flat daripada house, rata-rata rooms diatas jumlah rooms pada properti di london. 
+5.Identifikasi property yang belum memiliki komentar.
+(15 Points)
+
+Tentukan jumlah property dan nama pemilik masing-masing property tersebut.
+properti yang belum memiliki komentar adalah PG36 milik CO93 dengan staff SG37.
+6.Analisis pemilik property dengan nama yang diawali huruf T.
+(15 Points)
+
+Tentukan jumlah pemilik dan lokasi tempat tinggal mereka.
+tina murphy mempunyai address 63 Well St, Glasgow G42. tony shaw mempunyai address 12 Park Pl, Glasgow G4 0QR.
+7.Cari property yang harganya dibawah 500  ? siapa pemiliknya dan tempat/alamatnya dimana ? sekalian jenis property nya apa ?
+
+properti dibawah rent 500 adalah
+
+ PL94       | 6 Argyll St    | London  | NW2      | Flat |     4 |  400 | C087    | SL41    | B005
+ PG4        | 6 Lawrence  St | Glasgow | G11 9QX  | Flat |     3 |  350 | C040    |         | B003
+ PG36       | 2 Manor Rd     | Glasgow | G11 4QX  | Flat |     3 |  375 | CO93    | SG37    | B003
+ PG16       | 5 Novar Dr     | Glasgow | G12 9AX  | Flat |     4 |  450 | CO93    | SG14    | B003
